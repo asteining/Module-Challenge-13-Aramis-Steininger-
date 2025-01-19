@@ -1,37 +1,45 @@
-<<<<<<< HEAD
-# Module-Challenge-13-Aramis-Steininger-
-=======
-# React + TypeScript + Vite
+## Candidate Search Application
+A React + TypeScript web application that allows employers to search for potential candidates using the GitHub API, save them for future consideration, and review saved candidates.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Table of Contents
+- Description
+- Features
+- Technologies Used
+- License
+- Screenshot 
+- Links
 
-Currently, two official plugins are available:
+# Description
+The Candidate Search Application leverages the GitHub API to fetch and display profiles of random GitHub users. Employers can:
 
-* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh
-* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc), which uses [SWC](https://swc.rs/) for Fast Refresh
+View details about a candidate such as name, username, location, avatar, email, and company.
+Save candidates to a list for future consideration.
+Skip candidates they are not interested in.
+Review saved candidates in a separate view.
 
-## Expanding the ESLint configuration
+# Features
+- Fetches random GitHub users using the GitHub API.
+- Displays user details: Name, username, avatar, location, email, company, and GitHub profile link.
+- Allows saving candidates to a list (stored in localStorage for persistence).
+- Provides a list view of all saved candidates.
+- Displays appropriate messages when no candidates or saved candidates are available.
+- Fully responsive and styled UI for an intuitive user experience.
 
-If you're developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Technologies Used
+- React (v18.3.1)
+- TypeScript
+- Vite (v5.2.0)
+- React Router DOM (v6.23.1)
+- GitHub REST API
+- LocalStorage for saving data.
 
-* Configure the top-level `parserOptions` property as follows:
+# License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+# Screenshot
+![Alt text for the screenshot](/src/assets/Module-Challenge-13-SS.png)
 
-* Replace `plugin:@typescript-eslint/recommended` with `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`.
-* Optionally, add `plugin:@typescript-eslint/stylistic-type-checked`.
-* Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` and `plugin:react/jsx-runtime` to the `extends` list.
+# Links
+- https://github.com/asteining/Module-Challenge-13-Aramis-Steininger-
+- 
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
->>>>>>> 0a7b2d1 (initial)
