@@ -5,7 +5,7 @@ const searchGithub = async () => {
 
     const response = await fetch(`https://api.github.com/users?since=${start}`, {
       headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+        Authorization: `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`,
 
       },
     });
@@ -39,7 +39,7 @@ const searchGithubUser = async (username: string) => {
 
     const response = await fetch(`https://api.github.com/users/${username}`, {
       headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+        Authorization: `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`,
       },
     });
 

@@ -9,6 +9,13 @@ const SavedCandidates = () => {
     setSavedCandidates(saved);
   }, []);
 
+  // Function to delete a candidate
+  const deleteCandidate = (id: number) => {
+    const updatedCandidates = savedCandidates.filter(candidate => candidate.id !== id);
+    setSavedCandidates(updatedCandidates);
+    localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates));
+  };
+
   return (
     <div>
       <h1>Saved Candidates</h1>
@@ -23,6 +30,7 @@ const SavedCandidates = () => {
               <th>Company</th>
               <th>Email</th>
               <th>Profile</th>
+              <th>Action</th> {/* Added column for delete button */}
             </tr>
           </thead>
           <tbody>
@@ -40,6 +48,21 @@ const SavedCandidates = () => {
                   <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
                     GitHub Profile
                   </a>
+                </td>
+                <td>
+                  <button 
+                    onClick={() => deleteCandidate(candidate.id)}
+                    style={{
+                      backgroundColor: 'red',
+                      color: 'white',
+                      border: 'none',
+                      padding: '5px 10px',
+                      cursor: 'pointer',
+                      borderRadius: '5px'
+                    }}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
