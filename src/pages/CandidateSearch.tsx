@@ -38,7 +38,7 @@ const CandidateSearch = () => {
       <h1>Candidate Search</h1>
       {isLoading ? (
         <p>Loading...</p>
-      ) : candidate ? (
+      ) : candidate && (
         <div>
           <img src={candidate.avatar_url} alt={`${candidate.login} avatar`} width="100" />
           <h2>{candidate.name || candidate.login}</h2>
@@ -54,9 +54,7 @@ const CandidateSearch = () => {
             <button onClick={skipCandidate}>-</button>
           </div>
         </div>
-      ) : (
-        <p>No more candidates available</p>
-      )}
+      ) }
     </div>
   );
 };
