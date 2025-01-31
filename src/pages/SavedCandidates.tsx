@@ -18,60 +18,69 @@ const SavedCandidates = () => {
 
   return (
     <div>
-      <h1>Saved Candidates</h1>
-      {savedCandidates.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Avatar</th>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Location</th>
-              <th>Company</th>
-              <th>Email</th>
-              <th>Profile</th>
-              <th>Action</th> {/* Added column for delete button */}
+    <h1>Saved Candidates</h1>
+    {savedCandidates && savedCandidates.length > 0 ? (
+      <table>
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Location</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Profile</th>
+            <th>Action</th> {/* Added column for delete button */}
+          </tr>
+        </thead>
+        <tbody>
+          {savedCandidates.map((candidate) => (
+            <tr key={candidate.login || candidate.id}>
+              <td>
+                <img 
+                  src={candidate?.avatar_url || 'default-avatar.png'} 
+                  alt={`${candidate?.login} avatar`} 
+                  width="50" 
+                />
+              </td>
+              <td>{candidate?.name || 'N/A'}</td>
+              <td>{candidate?.login}</td>
+              <td>{candidate?.location || 'N/A'}</td>
+              <td>{candidate?.company || 'N/A'}</td>
+              <td>{candidate?.email || 'N/A'}</td>
+              <td>
+                <a 
+                  href={candidate?.html_url || '#'} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  GitHub Profile
+                </a>
+              </td>
+              <td>
+                <button 
+                  onClick={() => deleteCandidate && deleteCandidate(candidate.id)}
+                  style={{
+                    backgroundColor: 'red',
+                    color: 'white',
+                    border: 'none',
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                    borderRadius: '5px'
+                  }}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {savedCandidates.map((candidate) => (
-              <tr key={candidate.id}>
-                <td>
-                  <img src={candidate.avatar_url} alt={`${candidate.login} avatar`} width="50" />
-                </td>
-                <td>{candidate.name || 'N/A'}</td>
-                <td>{candidate.login}</td>
-                <td>{candidate.location || 'N/A'}</td>
-                <td>{candidate.company || 'N/A'}</td>
-                <td>{candidate.email || 'N/A'}</td>
-                <td>
-                  <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
-                    GitHub Profile
-                  </a>
-                </td>
-                <td>
-                  <button 
-                    onClick={() => deleteCandidate(candidate.id)}
-                    style={{
-                      backgroundColor: 'red',
-                      color: 'white',
-                      border: 'none',
-                      padding: '5px 10px',
-                      cursor: 'pointer',
-                      borderRadius: '5px'
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>No candidates have been saved.</p>
-      )}
-    </div>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <p>No candidates have been saved.</p>
+    )}
+  </div>
+  
   );
 };
 
